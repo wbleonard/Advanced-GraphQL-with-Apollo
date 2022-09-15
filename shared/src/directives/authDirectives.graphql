@@ -1,0 +1,16 @@
+"""
+The user must be authenticated to use the field.
+"""
+directive @private on FIELD_DEFINITION
+
+"""
+Require an authenticated user to be the owner of the resource to use the field.
+"""
+directive @owner(
+  """
+  Name of the argument to check against the access token's `sub` claim.
+  
+  Dot notation is allowed for nested fields.
+  """
+  argumentName: String!
+) on FIELD_DEFINITION
